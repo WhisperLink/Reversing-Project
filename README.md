@@ -12,10 +12,16 @@ PDF walkthroughs included:
 - TechScheduler
 - XoftSpy
 
-## Challenges
+## Tools
 
-Each walkthrough targets a shareware "crackme" and demonstrates a different reverse engineering approach. The tools used are mainly OllyDbg and Resource Hacker.
+The walkthroughs were done with the following reverse engineering tools:
 
+- **OllyDbg** - 32-bit debugger/disassembler used to trace execution, set breakpoints, inspect string and API references (including the "All intermodular calls" view), and patch instructions.
+- **Resource Hacker** - resource editor used to inspect the executable's dialogs/resources, such as identifying the nag dialog by its resource ID.
+  
+## Challenges  
+
+Each walkthrough targets a shareware "crackme" and demonstrates a different reverse engineering approach. The tools used 
 ### Flash Producer
 
 A registration-bypass challenge. Rather than recovering a valid key, the goal is to patch the program so it behaves as registered. The window title switches between "Flash Jigsaw Producer" and "Flash Jigsaw Producer (unregistered)" via two `SetWindowTextA` calls, so the walkthrough searches for the "unregistered" string, locates the `TEST AL,AL` / conditional jump that decides registered state, and patches it to unlock the registered-only features.
